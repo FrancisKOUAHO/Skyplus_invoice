@@ -11,9 +11,9 @@
         class="status-button flex"
         :class="{ paid: invoice.invoicePaid, draft: invoice.invoiceDraft, pending: invoice.invoicePending }"
       >
-        <span v-if="invoice.invoicePaid">Paid</span>
+        <span v-if="invoice.invoicePaid">Payé</span>
         <span v-if="invoice.invoiceDraft">Draft</span>
-        <span v-if="invoice.invoicePending">Pending</span>
+        <span v-if="invoice.invoicePending">En attente</span>
       </div>
       <div class="icon">
         <img src="@/assets/icon-arrow-right.svg" alt="" />

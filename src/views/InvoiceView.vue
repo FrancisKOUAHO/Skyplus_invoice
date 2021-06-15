@@ -1,12 +1,12 @@
 <template>
   <div v-if="currentInvoice" class="invoice-view container">
     <router-link class="nav-link flex" :to="{ name: 'Home' }">
-      <img src="@/assets/icon-arrow-left.svg" alt="" /> Go Back
+      <img src="@/assets/icon-arrow-left.svg" alt="" /> Retourner
     </router-link>
     <!-- Header -->
     <div class="header flex">
       <div class="left flex">
-        <span>Status</span>
+        <span>Statut</span>
         <div
           class="status-button flex"
           :class="{
@@ -15,23 +15,23 @@
             pending: currentInvoice.invoicePending,
           }"
         >
-          <span v-if="currentInvoice.invoicePaid">Paid</span>
+          <span v-if="currentInvoice.invoicePaid">Payé</span>
           <span v-if="currentInvoice.invoiceDraft">Draft</span>
-          <span v-if="currentInvoice.invoicePending">Pending</span>
+          <span v-if="currentInvoice.invoicePending">En attente</span>
         </div>
       </div>
       <div class="right flex">
-        <button @click="toggleEditInvoice" class="dark-purple">Edit</button>
-        <button @click="deleteInvoice(currentInvoice.docId)" class="red">Delete</button>
+        <button @click="toggleEditInvoice" class="dark-purple">Modifier</button>
+        <button @click="deleteInvoice(currentInvoice.docId)" class="red">Supprimer</button>
         <button @click="updateStatusToPaid(currentInvoice.docId)" v-if="currentInvoice.invoicePending" class="green">
-          Mark as Paid
+          Marquer comme payé
         </button>
         <button
           v-if="currentInvoice.invoiceDraft || currentInvoice.invoicePaid"
           @click="updateStatusToPending(currentInvoice.docId)"
           class="orange"
         >
-          Mark as Pending
+          Marquer comme en attente
         </button>
       </div>
     </div>
@@ -52,17 +52,17 @@
       </div>
       <div class="middle flex">
         <div class="payment flex flex-column">
-          <h4>Invoice Date</h4>
+          <h4>Date de la facture</h4>
           <p>
             {{ currentInvoice.invoiceDate }}
           </p>
-          <h4>Payment Date</h4>
+          <h4>Date de paiement</h4>
           <p>
             {{ currentInvoice.paymentDueDate }}
           </p>
         </div>
         <div class="bill flex flex-column">
-          <h4>Bill To</h4>
+          <h4>Facture à</h4>
           <p>{{ currentInvoice.clientName }}</p>
           <p>{{ currentInvoice.clientStreetAddress }}</p>
           <p>{{ currentInvoice.clientCity }}</p>
@@ -70,16 +70,16 @@
           <p>{{ currentInvoice.clientCountry }}</p>
         </div>
         <div class="send-to flex flex-column">
-          <h4>Sent To</h4>
+          <h4>Envoyé à</h4>
           <p>{{ currentInvoice.clientEmail }}</p>
         </div>
       </div>
       <div class="bottom flex flex-column">
         <div class="billing-items">
           <div class="heading flex">
-            <p>Item Name</p>
-            <p>QTY</p>
-            <p>Price</p>
+            <p>Nom de l'article</p>
+            <p>QTÉ</p>
+            <p>Prix</p>
             <p>Total</p>
           </div>
           <div v-for="(item, index) in currentInvoice.invoiceItemList" :key="index" class="item flex">
@@ -90,7 +90,7 @@
           </div>
         </div>
         <div class="total flex">
-          <p>Amount Due</p>
+          <p>Montant dû</p>
           <p>{{ currentInvoice.invoiceTotal }}</p>
         </div>
       </div>
@@ -127,7 +127,7 @@ export default {
 
     async deleteInvoice(docId) {
       await this.DELETE_INVOICE(docId);
-      this.$router.push({ name: "Home" });
+      await this.$router.push({name: "Home"});
     },
 
     updateStatusToPaid(docId) {

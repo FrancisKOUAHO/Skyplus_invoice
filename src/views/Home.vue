@@ -3,27 +3,27 @@
     <!-- Header -->
     <div class="header flex">
       <div class="left flex flex-column">
-        <h1>Invoices</h1>
-        <span>There are {{ invoiceData.length }} total invoices</span>
+        <h1>Factures</h1>
+        <span>Il y a {{ invoiceData.length }} total des factures</span>
       </div>
       <div class="right flex">
         <div @click="toggleFilterMenu" class="filter flex">
           <span
-            >Filter by status <span v-if="filteredInvoice">: {{ filteredInvoice }}</span></span
+            >Filtrer par statut <span v-if="filteredInvoice">: {{ filteredInvoice }}</span></span
           >
           <img src="@/assets/icon-arrow-down.svg" alt="" />
           <ul v-show="filterMenu" class="filter-menu">
             <li @click="filteredInvoices">Draft</li>
-            <li @click="filteredInvoices">Pending</li>
-            <li @click="filteredInvoices">Paid</li>
-            <li @click="filteredInvoices">Clear Filter</li>
+            <li @click="filteredInvoices">En attente</li>
+            <li @click="filteredInvoices">Payé</li>
+            <li @click="filteredInvoices">Filtre clair</li>
           </ul>
         </div>
         <div @click="newInvoice" class="button flex">
           <div class="inner-button flex">
             <img src="@/assets/icon-plus.svg" alt="" />
           </div>
-          <span>New Invoice</span>
+          <span>Nouvelle facture</span>
         </div>
       </div>
     </div>
@@ -33,8 +33,8 @@
     </div>
     <div v-else class="empty flex flex-column">
       <img src="@/assets/illustration-empty.svg" alt="" />
-      <h3>There is nothing here</h3>
-      <p>Create a new invoice by clicking the New Invoice button and get started</p>
+      <h3>Il n'y a rien ici</h3>
+      <p>Créez une nouvelle facture en cliquant sur le bouton "Nouvelle facture" et commencez à travailler.</p>
     </div>
   </div>
 </template>
