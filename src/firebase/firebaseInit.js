@@ -2,12 +2,12 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 
 let firebaseConfig = {
-  apiKey: "AIzaSyBtX0zbq8OWFoczz-D55IEQ-zQxcmjZ6BU",
-  authDomain: "invoice-app-yt.firebaseapp.com",
-  projectId: "invoice-app-yt",
-  storageBucket: "invoice-app-yt.appspot.com",
-  messagingSenderId: "638958069840",
-  appId: "1:638958069840:web:2a359ba0cf4b8c7b648955",
+  apiKey: "AIzaSyCWIpL1YQP6nPo-pR3PEfrOYAaaT_zSLaE",
+  authDomain: "skyplusinvoice.firebaseapp.com",
+  projectId: "skyplusinvoice",
+  storageBucket: "skyplusinvoice.appspot.com",
+  messagingSenderId: "18984490494",
+  appId: "1:18984490494:web:e9aa1b3a4da6733fbd1caf"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
